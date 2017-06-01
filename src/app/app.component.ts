@@ -8,7 +8,7 @@ import { Component, Inject } from '@angular/core';
 export class AppComponent {
 
   onUpdate(userValues){
-    console.log(userValues);
+    this.search.checkCondition(userValues);
   }
 
   constructor(
