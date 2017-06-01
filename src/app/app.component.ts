@@ -7,6 +7,10 @@ import { Component, Inject } from '@angular/core';
 })
 export class AppComponent {
 
+  onUpdate(userValues){
+    console.log(userValues);
+  }
+
   constructor(
     @Inject('search') private search
   ){}
