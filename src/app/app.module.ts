@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { PalindromeComponent } from './palindrome/palindrome.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
-import { SearchService } from './palindrome/search.service';
+import { SearchService } from './search.service';
 
 @NgModule({
   declarations: [

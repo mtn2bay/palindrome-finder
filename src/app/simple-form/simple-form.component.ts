@@ -1,19 +1,44 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-simple-form',
   template: `
-    <input #userFirst type="text">
-    <input #userSecond type="text">
-    <button (click)="update.emit([userFirst.value, userSecond.value])">Search</button>
+
+    <div class="row">
+      <div class="col-xs-2">
+        <input #userFirst type="text" class="form-control input-sm" placeholder="Value 1">
+        <input #userSecond type="text" class="form-control input-sm" placeholder="Value 2">
+        <button class="btn btn-default btn-xs" (click)="update.emit([userFirst.value, userSecond.value])">Search</button>
+      </div>
+      <div class="col-xs-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            {{search.result}}
+          </div>
+        </div>
+      </div>
+    </div>
+
   `,
-  styles: []
+  styles: [`
+    input{margin-bottom: 10px;}
+    .panel{
+      height: 78px;
+      width: 200px;
+    }
+    .panel-body{
+      padding: 0 10px;
+      font-size: 55px;
+    }
+  `]
 })
 export class SimpleFormComponent implements OnInit {
 
   @Output() update = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    @Inject('search') private search
+  ){}
 
   ngOnInit() {
   }
