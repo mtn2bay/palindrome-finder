@@ -8,7 +8,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 export class PalindromeComponent implements OnInit {
 
   onUpdate(userValues){
-    this.search.checkCondition(userValues);
+    this.search.isPalindrome(userValues);
   }
 
   constructor(

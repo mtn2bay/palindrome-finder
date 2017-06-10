@@ -3,36 +3,40 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SearchService {
 
-  userValues = [];
+  result = '';
 
-  result = "";
+  isPalindrome(userValues) {
 
-  isPalindrome(n) {
-    return n.toString().split('').reverse().join('') === n.toString();
-  }
-
-  checkCondition(userValues) {
-
-    var workingNum,
-      endPoint;
+    var current, endPoint;
 
     if (+userValues[0] > +userValues[1]) {
-      workingNum = +userValues[0];
+      current = +userValues[0];
       endPoint = +userValues[1];
     } else {
-      workingNum = +userValues[1];
+      current = +userValues[1];
       endPoint = +userValues[0];
     }
 
-    while (workingNum >= endPoint) {
-      if (this.isPalindrome(workingNum)) {
-        this.result = workingNum;
+    while (current >= endPoint) {
+      if (this.getRev(current) === current) {
+        this.result = current;
         break;
       } else {
-        workingNum--;
+        current--;
       }
     }
   }
 
+  getRev(val) {
+    var original = val;
+    var reversed = 0;
+    var lastDigit;
 
+    while (original > 0){
+      lastDigit = original % 10;
+      original = Math.floor(original / 10);
+      reversed = reversed * 10 + lastDigit;
+    }
+    return reversed;
+  }
 }
