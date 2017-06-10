@@ -10,7 +10,7 @@ import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
         <input #userSecond type="text" class="form-control input-sm" placeholder="Value 2">
         <button class="btn btn-default btn-xs" (click)="update.emit([userFirst.value, userSecond.value])">Search</button>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-8">
         <div class="panel panel-default">
           <div class="panel-body">
             {{search.result}}
@@ -23,12 +23,13 @@ import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
   styles: [`
     input{margin-bottom: 10px;}
     .panel{
-      height: 78px;
-      width: 200px;
+      min-height: 78px;
+      min-width: 200px;
     }
     .panel-body{
       padding: 0 10px;
       font-size: 55px;
+      word-wrap: break-word;
     }
   `]
 })
