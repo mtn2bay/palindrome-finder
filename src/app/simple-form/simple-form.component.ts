@@ -5,7 +5,7 @@ import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
   template: `
 
     <div class="row">
-      <div class="col-xs-2">
+      <div class="col-xs-4">
         <input #userFirst type="text" class="form-control input-sm" placeholder="Value 1">
         <input #userSecond type="text" class="form-control input-sm" placeholder="Value 2">
         <button class="btn btn-default btn-xs" (click)="update.emit([userFirst.value, userSecond.value])">Search</button>
